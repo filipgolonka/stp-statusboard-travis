@@ -1,0 +1,22 @@
+{
+  "name": "stp-statusboard/stp-statusboard-travis",
+  "description": "Travis widget for stp-silex-statusboard",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michal Plachta",
+      "email": "michal.plachta@schibsted.pl"
+    }
+  ],
+  "require": {
+    "silex/silex": "1.2.*",
+    "stp-statusboard/stp-statusboard-base": "0.1.*",
+    "guzzle/guzzle": "3.9.*",
+    "schibsted-tech-polska/travis-ci-client": "0.1.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "StpBoard\\Travis\\": "src"
+    }
+  }
+}

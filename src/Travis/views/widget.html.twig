@@ -1,0 +1,59 @@
+<style>
+    .travis {
+        padding: 15px;
+    }
+
+    .travis .travisicon {
+        font-size: 140px;
+        height: 160px;
+        margin: 10px 0;
+    }
+
+    .travis .title {
+        font-size: 24px;
+    }
+
+    .travis .subtitle {
+        font-size: 24px;
+        color: #c7ddef;
+    }
+
+    .travis .author {
+        font-size: 20px;;
+    }
+
+    .travis .green {
+        color: #00ff00;
+    }
+
+    .travis .red {
+        color: red;
+    }
+
+    .travis.boardContent {
+        height: auto;
+    }
+
+    .travis .author img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+    }
+
+    .travis .build {
+        margin-top: 10px;
+    }
+
+    .travis .date {
+        color: #999;
+    }
+
+</style>
+<div class="boardContent travis">
+    <div class="title">
+        {{ data.repo }}
+    </div>
+    {% block widget %}{% endblock %}
+</div>

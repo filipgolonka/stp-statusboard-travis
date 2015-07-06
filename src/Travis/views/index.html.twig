@@ -1,0 +1,39 @@
+{% extends 'widget.html.twig' %}
+{% block widget %}
+    {% if data.limit == 1 %}
+        {% set span = 12 %}
+    {% elseif data.limit == 2 %}
+        {% set span = 6 %}
+    {% else %}
+        {% set span = 4 %}
+    {% endif %}
+
+    <div class="row">
+    {% for build in data.builds %}
+        <div class="build col-md-{{ span }}">
+            <div class="subtitle">
+                {% if data.branch %}{{ data.branch }}{% endif %}
+                {% if build.commit.pullRequestNumber %}PR #{{ build.commit.pullRequestNumber }}{% endif %}
+            </div>
+            <div class="travisicon">
+                {% if build.state == 'passed' %}
+                    <i class="glyphicon glyphicon-ok green"></i>
+                {% elseif build.state == 'created' %}
+                    <i class="glyphicon glyphicon-refresh"></i>
+                {% elseif build.state == 'failed' %}
+                    <i class="glyphicon glyphicon-remove red"></i>
+                {% else %}
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                {% endif %}
+            </div>
+
+            <div class="author">
+                <img src="{{ build.author_gravatar }}?s=30"/> {{ build.commit.authorName }}
+            </div>
+            <div class="date">
+                {{ build.started_at|date('Y-m-d G:i') }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
